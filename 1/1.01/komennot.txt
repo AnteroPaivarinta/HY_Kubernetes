@@ -1,0 +1,6 @@
+sudo docker build -t .
+sudo docker run -d -p 8080:8080 generator
+docker tag generator anteropaivarinta/generator
+docker push anteropaivarinta/generator
+kubectl create deployment hashgenerator-dep --image=anteropaivarinta/generator
+kubectl logs -f {kubectl pod id}
